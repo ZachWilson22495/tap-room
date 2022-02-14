@@ -9,10 +9,6 @@ function DrinkDisplay(props){
       {props.drinkList.map((drink) =>
         <Drink whenDrinkClicked = { props.onDrinkSelection} 
         name={drink.name}
-        brand={drink.brand}
-        price={drink.price}
-        flavor={drink.flavor}
-        pints={drink.pints}
         id={drink.id}
         key={drink.id}/>
       )}

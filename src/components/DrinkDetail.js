@@ -6,7 +6,16 @@ function DrinkDetail(props){
 
   return (
     <React.Fragment>
-      <h3>{drink.name}</h3>
+      <h3>Name: {drink.name}
+      <hr></hr>
+      Brand: {drink.brand}
+      <hr></hr>
+      Price: ${drink.price}
+      <hr></hr>
+      Flavor: {drink.flavor}
+      <hr></hr>
+      Pints Remaining: {drink.pints}</h3>
+      <hr></hr>
       <button onClick={ props.onClickingEdit }>Update Drink</button>
       <button onClick={()=> onClickingDelete(drink.id) }>Remove Drink</button> { /* new code */ }
       <hr/>
