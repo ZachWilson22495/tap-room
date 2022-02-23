@@ -17,10 +17,10 @@ function Drink(props){
 
 Drink.propTypes = {
   name: PropTypes.string.isRequired,
-  brand: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  flavor: PropTypes.string.isRequired,
-  pints: PropTypes.number.isRequired,
+  brand: PropTypes.string,
+  price: PropTypes.number,
+  flavor: PropTypes.string,
+  pints: PropTypes.number,
   id: PropTypes.string,
   whenDrinkClicked: PropTypes.func
 };

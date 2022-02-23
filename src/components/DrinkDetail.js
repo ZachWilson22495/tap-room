@@ -2,7 +2,19 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function DrinkDetail(props){
-  const { drink, onClickingDelete } = props; //new code
+  const { drink, onClickingSell, onClickingEdit, onClickingDelete } = props;
+  
+  function handleSell() {
+    onClickingSell(props.drinkId)
+  }
+  
+  function handleEdit(){
+    onClickingEdit();
+  }
+
+  function handleDelete(){
+    onClickingDelete(drink.id);
+  }
 
   return (
     <React.Fragment>
@@ -16,8 +28,10 @@ function DrinkDetail(props){
       <hr></hr>
       Pints Remaining: {drink.pints}</h3>
       <hr></hr>
-      <button onClick={ props.onClickingEdit }>Update Drink</button>
-      <button onClick={()=> onClickingDelete(drink.id) }>Remove Drink</button> { /* new code */ }
+      <button onClick={ handleSell }>Sell a Pint</button>
+      <hr></hr>
+      <button onClick={ handleEdit }>Update Drink</button>
+      <button onClick={ handleDelete }>Remove Drink</button>
       <hr/>
     </React.Fragment>
   );
@@ -25,7 +39,7 @@ function DrinkDetail(props){
 
 DrinkDetail.propTypes = {
   drink: PropTypes.object,
-  onClickingDelete: PropTypes.func, // new code
+  onClickingDelete: PropTypes.func,
   onClickingEdit: PropTypes.func
 };
 export default DrinkDetail;

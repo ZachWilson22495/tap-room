@@ -45,6 +45,38 @@ class DrinkControl extends React.Component{
     };
   }
 
+  // handleSellingClick = () => {
+  //   this.setState(chosenDrink => {
+  //     console.log(chosenDrink.pints)
+  //     if(chosenDrink.pints > 0) {
+  //       return {
+  //         pints: chosenDrink.quantity - 1
+  //       }
+  //     } else {
+  //       return null;
+  //     }
+  //   });
+  // }
+
+  // handleSellingClick = (id) => {
+  //   const chosenDrink = this.state.availableDrinks.find(drink => drink.id === id)
+  //   this.setState({
+  //     chosenDrink.pints: chosenDrink.pints - 1
+  //   });
+  // }
+
+  handleSellingClick = (id) => {
+    let newAvailableDrinks = [...this.state.availableDrinks];
+    let chosenDrink = newAvailableDrinks.find(drink => drink.id === id);
+    if (chosenDrink.pints > 0) {
+      chosenDrink.pints -= 1
+    } else {
+      chosenDrink.pints = 0
+    }
+    
+    this.setState({availableDrinks: newAvailableDrinks});
+  }
+
   handleDeletingDrink = (id) => {
     const newMainDrinkList = this.state.availableDrinks.filter(drink => drink.id !== id);
     this.setState({
@@ -104,8 +136,10 @@ class DrinkControl extends React.Component{
     } 
     else if (this.state.selectedDrink != null) {
       currentlyVisibleState = <DrinkDetail drink = {this.state.selectedDrink}
+      drinkId = {this.state.selectedDrink.id}
+      onClickingSell = {this.handleSellingClick}
       onClickingDelete = {this.handleDeletingDrink}
-      onClickingEdit = {this.handleEditClick} />
+      onClickingEdit = {this.handleEditClick}/>
       buttonText = "Return to Drink List";
       
       // While our TicketDetail component only takes placeholder data, we will eventually be passing the value of selectedTicket as a prop.
