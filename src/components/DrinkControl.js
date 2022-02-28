@@ -45,26 +45,6 @@ class DrinkControl extends React.Component{
     };
   }
 
-  // handleSellingClick = () => {
-  //   this.setState(chosenDrink => {
-  //     console.log(chosenDrink.pints)
-  //     if(chosenDrink.pints > 0) {
-  //       return {
-  //         pints: chosenDrink.quantity - 1
-  //       }
-  //     } else {
-  //       return null;
-  //     }
-  //   });
-  // }
-
-  // handleSellingClick = (id) => {
-  //   const chosenDrink = this.state.availableDrinks.find(drink => drink.id === id)
-  //   this.setState({
-  //     chosenDrink.pints: chosenDrink.pints - 1
-  //   });
-  // }
-
   handleSellingClick = (id) => {
     let newAvailableDrinks = [...this.state.availableDrinks];
     let chosenDrink = newAvailableDrinks.find(drink => drink.id === id);
@@ -142,17 +122,14 @@ class DrinkControl extends React.Component{
       onClickingEdit = {this.handleEditClick}/>
       buttonText = "Return to Drink List";
       
-      // While our TicketDetail component only takes placeholder data, we will eventually be passing the value of selectedTicket as a prop.
     }
     else if (this.state.formVisibleOnPage) {
-      // This conditional needs to be updated to "else if."
       currentlyVisibleState = <DrinkForm onNewDrinkCreation={this.handleAddDrink}  />;
       buttonText = "Return to Drink List";
 
     }
     else {
       currentlyVisibleState = <DrinkDisplay drinkList={this.state.availableDrinks} onDrinkSelection={this.handleChangingSelectedDrink} />;
-      // Because a user will actually be clicking on the ticket in the Ticket component, we will need to pass our new handleChangingSelectedTicket method as a prop.
       buttonText = "Add Drink";
     }
     return (
