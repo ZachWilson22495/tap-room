@@ -29,7 +29,7 @@ https://app.diagrams.net/#G1pmACLEgzat5FtYm2tjq0fEwYy25MKcVt
 
 ## Known Bugs
 
-Currently no known bugs. Struggling to push to GitHub, however. Here's hoping this works.
+Currently no known bugs. Struggling to push to GitHub, But the LAST PUSH WORKED! TRYING GITBASH NOW IN TERMINAL
 
 ## License
 
